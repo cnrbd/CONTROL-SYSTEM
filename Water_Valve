@@ -1,4 +1,4 @@
-rom AnalogSensorSim import WaterFlowValve
+from AnalogSensorSim import WaterFlowValve
 
 myWaterValve = WaterFlowValve()
 currentValue = 0.0
@@ -8,11 +8,23 @@ currentValue = 0.0
 
 currentTime = 0.0
 currentSignal = 0
-setpoint = 4.5
+setpoint = 1
 
 while(currentTime < 10.0):
   valveFlowSensorValue = myWaterValve.getFlowRate()
   
+  if (valveFlowSensorValue < setpoint) :
+    currentSignal += 3
+  elif (valveFlowSensorValue > setpoint):
+    currentSignal -= 3
+  else:
+    currentSignal = valveFlowSensorValue
+
+ 
+
+
+
   myWaterValve.setSignal(currentSignal)
   print(currentTime,",",valveFlowSensorValue)
   currentTime += 0.1
+
