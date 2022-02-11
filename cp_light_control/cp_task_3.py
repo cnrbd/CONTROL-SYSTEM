@@ -1,6 +1,9 @@
 import board
 from analogio import AnalogOut, AnalogIn
 
-analog_out = AnalogOut(board.A0)
-analog_in =  AnalogIn(board.A1)
+led = AnalogOut(board.A0)
+light =  AnalogIn(board.A1)
 
+while True:
+        led.value = light.value 
+    
