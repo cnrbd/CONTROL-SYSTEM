@@ -5,4 +5,5 @@ led = AnalogOut(board.A0)
 light =  AnalogIn(board.A1)
 
 while True:
-        led.value = light.value 
+        led.value = 60000
+        print(light.value)
